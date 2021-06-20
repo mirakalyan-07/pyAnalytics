@@ -2,7 +2,7 @@
 #-----------------------------
 #Data Structures
 #List - ordered collection of items, mutable(changeable) : [square ]
-list1 = [1,2,3,4,5,'a','Dhiraj',"Upadhyaya",True]  #list type of object with data
+list1 = [1,2,3,4,5,'a','Mira',"Priyadarshini",True]  #list type of object with data
 list1  #print when through spyder
 type(list1)  #type of object
 print(list1)  #print when running complete file
@@ -197,7 +197,7 @@ import pandas as pd
 pd?
 dir(pd)
 
-df1 = pd.DataFrame({'rollno':[1,2,3,4], 'name': [ "Dhiraj", "Kounal", "Akhil", "Pooja" ], 'marks':[ 40, 50, 60.5, 70 ], 'gender':['M', 'M','M', 'F']})
+df1 = pd.DataFrame({'rollno':[1,2,3,4], 'name': [ "Dhiraj", "Kounal", "Akhil", "Pooja" ], 'marks':[ 40, 50, 60.5, 70 ], 'gender':['M', 'M','M', 'F'],'course':["BE","MBA","BTech","MTech"]})
 df1
 type(df1) 
 
@@ -208,7 +208,7 @@ df1.dtypes #data types
 df1.shape  # rows and columns
 df1.groupby('gender').size()
 df1.groupby('gender')['marks'].mean()
-df1.groupby('gender').aggregate({'marks': [np.mean, 'max','min','std','count']})
+df1.groupby(['gender','course']).aggregate({'marks': [np.mean, 'max','min','std','count',np.max]})
 
 #%% #Graphs https://python-graph-gallery.com/
 #https://matplotlib.org/
@@ -218,16 +218,20 @@ df1.groupby('gender').size()
 df1.groupby('gender').size().plot(kind='bar')
 
 plt.hist(df1['marks'])
+help(plt.hist(df1))
 
 #https://seaborn.pydata.org/index.html
 import seaborn as sns
 # sns.set(style="ticks", color_codes=True)
 iris = sns.load_dataset("iris")
+sns.get_dataset_names()
+
 iris.head()
 iris.tail()
 df1.groupby('gender').size()
 iris.groupby('species').size().plot(kind='bar')
 sns.pairplot(iris)  #relationship diagrams
+help(sns.load_dataset)
 
 
 #%% #Load Inbuilt Datasets
@@ -275,8 +279,9 @@ data2a.head()
 data2c = pd.read_excel('mtcarsExcel.xlsx',header=0)
 #header=None
 data2c.head()
-
-
-
+data2c.describe()
+data2b.columns
+data2b.groupby('gear').size().plot(kind='bar')
+data2b.groupby(['gear','cyl']).aggregate({'mpg': [np.mean, 'max','min','count',np.max],'wt':np.mean})
 #end here....
 #now practise numpy and pandas....
