@@ -58,7 +58,7 @@ df2.isnull().values.any()
 df2.isnull().sum().sum()
 df2.isnull().sum(axis=0)  #column
 df2.isnull().sum(axis=1)  #row
-
+df2.isnull().sum().sum()/(df2.shape[0]*df2.shape[1])#percentage of missing values,(total missing values/total no.of elements)
 #%%%replacing Missing values
 # Replace missing values with a number
 df2['ST_NUM']
@@ -80,8 +80,8 @@ df2
 df2.dropna(axis=1) #remove col having missing values
 df2.dropna(axis=0) #remove rows having missing values
 df2
-df2.dropna(axis=0,thresh=1, subset=None, inplace=False) #threshold
-
+df2.dropna(axis=0,thresh=1, subset=None, inplace=True) #threshold
+df2
 #https://towardsdatascience.com/data-cleaning-with-python-and-pandas-detecting-missing-values-3e9c6ebcf78b
 #https://thispointer.com/pandas-drop-rows-from-a-dataframe-with-missing-values-or-nan-in-columns/
 #https://stackoverflow.com/questions/45515031/how-to-remove-columns-with-too-many-missing-values-in-python

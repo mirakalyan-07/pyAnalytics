@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['daily1.py']
+recent_files = ['daily1.py', 'daily2.py', 'py_missing_imput.py', 'PD06_importExport.py', 'PLT00_main.py', 'LM01_simple.py', 'LM03_mtcars.py', 'ST02_CovCorSkewKurt.py', 'ST04_missingValues.py']
 
